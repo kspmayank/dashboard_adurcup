@@ -63,21 +63,23 @@
 	
 </div>
 
-<div class="container-fluid" style="color: #fff; text-align: left; height: 5em; background: -webkit-linear-gradient(#D8D6D6,#151414);">
-	<div class="col-md-5" style="padding-left: 5em;">
+<div  style="color: #fff; text-align: left; height: 5em; background: -webkit-linear-gradient(#D8D6D6,#151414);">
+<div class="container-fluid" style="max-width: 1000px;" >
+	<div class="col-md-5">
 		<h4>Adurcup</h4>
 		<p>A-1, Sector 10, Noida</p>
 	</div>
 </div>
+</div>
 
-<div class="container-fluid" style="text-align: right;">
+<div class="container-fluid" style="text-align: right; max-width: 1000px;">
 	<h3>Upload Requirements (<a href="">Download Sample Data</a>) </h3>
 	<a class="btn btn-primary" href=""><i class="glyphicon glyphicon-upload"></i> Upload</a>
 	<h3>Previous Orders</h3>
 </div>
 <!-- <img height="200" src="img/">	 -->
 
-<div class="container-fluid">
+<div class="container-fluid" style="max-width: 1000px;">
 	<h3>Disposables</h3>
 
 	<table class="table table-striped">
@@ -86,15 +88,29 @@
 		</tr>	
 
 		<tr>
-			<td>1</td> <td>Black Container</td> <td>1000</td> <td>1.5</td> <td>Delivered</td> <td><a class="btn btn-primary">Reorder</a></td>
+			<td>1</td> <td>Black Container</td> <td id="variable">1000</td> <td>1.5</td> <td>Delivered</td> <td><a class="btn btn-primary" id="var_btn" onclick="Reorder('variable', 1000, 'var_btn')">Reorder</a></td>
 		</tr>	
 		<tr>
-			<td>2</td> <td>item name</td> <td>quantity</td> <td>price</td> <td>status</td> <td>action</td>
+			<td>2</td> <td>item name</td> <td>quantity</td> <td>price</td> <td>status</td> <td><a class="btn btn-danger">Cancel</a></td>
 		</tr>	
 
 	</table>
 
 </div>
+
+<div class="container-fluid" style="max-width: 1000px;">
+	<h3>Groceries</h3>
+
+
+</div>
+
+<script type="text/javascript">
+	function Reorder(argument, val, btn){
+		document.getElementById(argument).innerHTML = "<input type=text value="+ val +" />"
+		document.getElementById(btn).innerHTML = "Submit";
+		document.getElementById(btn).setAttribute("class","btn btn-success");
+	}
+</script>
 
 </body>
 </html>

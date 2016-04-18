@@ -88,7 +88,7 @@
 		</tr>	
 
 		<tr>
-			<td>1</td> <td>Black Container</td> <td id="variable">1000</td> <td>1.5</td> <td>Delivered</td> <td><a class="btn btn-primary" id="var_btn" onclick="Reorder('variable', 1000, 'var_btn')">Reorder</a></td>
+			<td>1</td> <td>Black Container</td> <td id="variable">1000</td> <td>1.5</td> <td id="status_var">Delivered</td> <td><a class="btn btn-primary" id="var_btn" onclick="Reorder('variable', 1000, 'var_btn', 'status_var')">Reorder</a></td>
 		</tr>	
 		<tr>
 			<td>2</td> <td>item name</td> <td>quantity</td> <td>price</td> <td>status</td> <td><a class="btn btn-danger">Cancel</a></td>
@@ -105,10 +105,20 @@
 </div>
 
 <script type="text/javascript">
-	function Reorder(argument, val, btn){
-		document.getElementById(argument).innerHTML = "<input type=text value="+ val +" />"
+	function Reorder(argument, val, btn, status){
+		document.getElementById(argument).innerHTML = "<input id='quantity' type=text value="+ val +" />"
 		document.getElementById(btn).innerHTML = "Submit";
 		document.getElementById(btn).setAttribute("class","btn btn-success");
+		document.getElementById(btn).setAttribute("onclick","Submit('"+btn+"',"+val+",'"+status+"')");
+	}
+
+	function Submit (btn, val, status) {
+		// body...
+		console.log(status);
+		console.log(btn);
+		document.getElementById(status).innerHTML = "Initiated";
+		document.getElementById(btn).innerHTML = "Cancel";		
+		document.getElementById(btn).setAttribute("class","btn btn-danger");
 	}
 </script>
 
